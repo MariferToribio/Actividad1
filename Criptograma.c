@@ -5,15 +5,15 @@ int main(){
 	int o, n, a, l, g, e, r, b, d = 5, t = 0;
 	long nom1, nom2, nom3, resultadoReal; 
 	char letras[9];  /*DONALGERBT -> Cada posicion corresponde a una letra.*/ 
-	letras[0] = '5'; /*5		  -> Primera posicion corresponde a la letra "D", en esa posicion se encuentra su valor asignado.*/
-	letras[9] = '0'; /*			0 -> Si se hace el reemplazo de las "D" (5+5=10, c5 = 1, T = 0), se obtiene el valor de T, el cual es 0.*/
+	letras[0] = '5'; /*5	      -> Primera posicion corresponde a la letra "D", en esa posicion se encuentra su valor asignado.*/
+	letras[9] = '0'; /*	    0 -> Si se hace el reemplazo de las "D" (5+5=10, c5 = 1, T = 0), se obtiene el valor de T, el cual es 0.*/
 	
 	char nombre1[6] = "DONALD"; /*Primer nombre*/
 	char nombre2[6] = "GERALD"; /*Segundo nombre*/
 	char nombre3[6] = "ROBERT"; /*Tercer nombre (nombre resultado)*/
 	
-	for(o = 1; o <= 9; o++){ /*Generar todas las combinaciones de números para las letras.*/
-	    /*Asignar en cadena "letras" en la posicion que le corresponde a la letra "O" en cadena "letras" (posicion 1), el valor de la variable "o".*/
+	for(o = 1; o <= 9; o++){ /*Generar todas las combinaciones de nÃºmeros para las letras.*/
+	        /*Asignar en cadena "letras" en la posicion que le corresponde a la letra "O" en cadena "letras" (posicion 1), el valor de la variable "o".*/
 		letras[1] = o + '0'; 
 		for(n = 1; n <= 9; n++){ 
 			/*Asignar en la posicion que le corresponde a la letra "N" en cadena "letras" (posicion 2), el valor de la variable "n".
@@ -35,19 +35,19 @@ int main(){
 									
 									/*Verificar que en la combinacion generada (valor asignado a cada letra),
 									  no exista mas de una letra con el mismo valor. Por que cada valor, debe ser unico de una letra.*/
-									if(repetido(letras) != 1){ /*No hay valores en cadena "letras" asignados a más de una letra.*/
+									if(repetido(letras) != 1){ /*No hay valores en cadena "letras" asignados a mÃ¡s de una letra.*/
 										nom1 = reemplazar(nombre1,letras); /*Remplazar cada letra del nombre1(DONALD) por el respectivo valor asignado a cada letra
-																		 	 y guardar el numero generado en nom1.*/
+														     y guardar el numero generado en nom1.*/
 										
 										
 										nom2 = reemplazar(nombre2,letras); /*Remplazar cada letra del nombre2(GERALD) por el respectivo valor asignado a cada letra
-																			 y guardar el numero generado en nom2.*/	
+														     y guardar el numero generado en nom2.*/	
 										
 										nom3 = reemplazar(nombre3,letras); /*Remplazar cada letra del nombre3(ROBERT) por el respectivo valor asignado a cada letra
-																		     y guardar el numero generado en nom3.*/
+														     y guardar el numero generado en nom3.*/
 									
 										resultadoReal = nom1 + nom2; /*Si los numeros asignados a las letras son los correctos, el resultado de la suma de nom1 y nom2
-																	   debera ser el mismo valor que tiene nom3 (ROBERT) despues del remplazo de las letras por los numeros.*/
+													       debera ser el mismo valor que tiene nom3 (ROBERT) despues del remplazo de las letras por los numeros.*/
 										
 										/*Si nom3 despues del reemplazo tiene el mismo valor que el resultado de la suma de num1 + nom2, es decir, 
 										  nom3 tiene almacenado el resultado de la operacion aritmetica de los numeros resultantes de reemplazar las letras de "DONALD" y "GERALD". 
@@ -84,9 +84,9 @@ int reemplazar(char *nombreOriginal, char *letras){
 	for(i = 0; i <= 5; i++){ /*Recorrer toda la cadena "nombre".*/
 		if(nombre[i] == 'D'){ /*Si la letra en la posicion i de la cadena es "D".*/
 			nombre[i] = letras[0]; /*El valor asignado a la letra "D" en la cadena "letras" se encuentra en la posicion 0.
-								     Reemplazar caracter de la posicion i de "nombre" por el valor dasignado a la letra D (letras[0]).
-									 Lo mismo sucede con las demas letras, a diferencia que cambia la posicion en la cadena "letras" y el
-									 valor asignado a la letra*/	
+					         Reemplazar caracter de la posicion i de "nombre" por el valor dasignado a la letra D (letras[0]).
+						 Lo mismo sucede con las demas letras, a diferencia que cambia la posicion en la cadena "letras" y el
+						 valor asignado a la letra*/	
 		} else if(nombre[i] == 'O'){
 			nombre[i] = letras[1];	
 		} else if(nombre[i] == 'N'){
@@ -108,14 +108,14 @@ int reemplazar(char *nombreOriginal, char *letras){
 		}
 	}
 	
-	/*En la cadena de caracteres "nombre", las letras ya fueron reemplazados por el número asignado a cada letra 
+	/*En la cadena de caracteres "nombre", las letras ya fueron reemplazados por el nÃºmero asignado a cada letra 
 	  y se retorna la cadena convertida a entero.*/
 	return atoi(nombre); 
 }
 
 /*
 FUNCION REPETIDO
-Verificar que en la cadena "letras" no haya un número más de una vez, lo cual significaria que más de una letra tiene el mismo valor asignado.
+Verificar que en la cadena "letras" no haya un nÃºmero mÃ¡s de una vez, lo cual significaria que mÃ¡s de una letra tiene el mismo valor asignado.
 Recibe por parametro la cadena de caracteres donde estan los valores asignados de las letras, segun la combinacion generada.
 */
 int repetido(char *letras){
@@ -124,10 +124,10 @@ int repetido(char *letras){
 	for(i = 0; i <= 9; i++) {
     	for(j = i+1; j <= 9; j++) {
         	if(letras[j] == letras[i]) {
-            	return 1; /*Retornar 1 si hay un mismo número asignado a mas de una letra (si un número se repite en la cadena "letras").*/
+            	return 1; /*Retornar 1 si hay un mismo nÃºmero asignado a mas de una letra (si un nÃºmero se repite en la cadena "letras").*/
        		}
     	}
 	}
 	
-	return -1; /*Retornar -1 si no hay un mismo número asignado a mas de una letra.*/
+	return -1; /*Retornar -1 si no hay un mismo nÃºmero asignado a mas de una letra.*/
 }
